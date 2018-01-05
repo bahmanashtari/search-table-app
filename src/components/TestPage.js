@@ -36,7 +36,7 @@ const UsersList = () => (
           title: "Name",
           dataIndex: "name",
           key: "name",
-          width: 70
+          width: 70,
         },
         {
           title: "Email",
