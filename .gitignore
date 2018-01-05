@@ -1,3 +1,7 @@
+# TODO: this gitignore was added later on, into the paroject
+# unnecessary files and folders that were pushed to github ripo
+# need to be filtered out
+
 .idea/
 .vscode/
 node_modules/
