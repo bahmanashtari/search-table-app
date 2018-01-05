@@ -59,7 +59,7 @@ const SearchBar = ({ searchInputs, isFetching }) => (
             );
           }
         }
-        return "";
+        return ""; // TODO: this must return something indicating an empty searchBar
       })}
     </div>
     {/*Buttons*/}
