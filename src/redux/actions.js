@@ -30,16 +30,10 @@ export const fetchData = url => {
   return dispatch => {
     axios(request)
       .then(res => {
-        console.log("____________API-CALL___________");
-        console.log("url ::", url);
-        console.log("typeof data::", typeof res.data);
-        console.log("fetched data::", res.data);
-        console.log("res.config::", res.config);
-        console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         dispatch(successFetching(res.data));
       })
       .catch(err => {
-        console.log("error:: ", err);
+        console.log("fetchData:: ", err);
       });
   };
 };
