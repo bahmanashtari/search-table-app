@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 
@@ -6,7 +7,7 @@ import SearchBar from "./SearchBar";
 import ListingTable from "./ListingTable";
 // import * as actions from "../redux/actions";
 
-class SearchTable extends Component {
+export default class SearchTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +55,7 @@ class SearchTable extends Component {
   render() {
     const { data, isFetching, errorStatus, errorMessage } = this.state;
 
-    const { key, classNamePostFix, searchInputs, tableColumns } = this.props;
+    const { classNamePostFix: key, classNamePostFix, searchInputs, tableColumns } = this.props;
 
     if (this.props.error) {
       return (
@@ -66,7 +67,6 @@ class SearchTable extends Component {
         </div>
       );
     }
-
     return (
       <div key={key} className={`searchTable ${classNamePostFix}`}>
         <div className="contentWrapper">

@@ -5,7 +5,6 @@ const UsersList = () => (
   <div className="usersList">
     <SearchTable
       key="usersList"
-      url="https://jsonplaceholder.typicode.com/users"
       classNamePostFix="usersList"
       searchInputs={{
         text: {
@@ -25,6 +24,7 @@ const UsersList = () => (
           }
         }
       }}
+      url="https://jsonplaceholder.typicode.com/users"
       tableColumns={[
         {
           title: "Name",
@@ -67,7 +67,6 @@ const UsersList = () => (
 
 <SearchTable
       key="todoList"
-      url="https://jsonplaceholder.typicode.com/todos"
       classNamePostFix="todoList"
       searchInputs={{
         text: {
@@ -93,6 +92,7 @@ const UsersList = () => (
           style: { margin: "1%" }
         }
       }}
+      url="https://jsonplaceholder.typicode.com/todos"
       tableColumns={[
         {
           title: "Title",
