@@ -52,17 +52,9 @@ class SearchTable extends Component {
   }
 
   render() {
-    const {
-      data,
-      isFetching,
-      errorStatus,
-      errorMessage,
-      key,
-      classNamePostFix,
-      searchInputs,
-      tableColumns
-      // } = this.props;
-    } = this.state;
+    const { data, isFetching, errorStatus, errorMessage } = this.state;
+
+    const { key, classNamePostFix, searchInputs, tableColumns } = this.props;
 
     if (this.props.error) {
       return (
