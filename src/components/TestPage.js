@@ -1,11 +1,10 @@
 import React from "react";
 import SearchTable from "./SearchTable";
-import uuid from 'uuid'
 
 const UsersList = () => (
   <div className="usersList">
     <SearchTable
-      key= {uuid()}
+      key="usersList"
       url="https://jsonplaceholder.typicode.com/users"
       classNamePostFix="usersList"
       searchInputs={{
@@ -67,9 +66,9 @@ const UsersList = () => (
     />
 
 <SearchTable
-      key={uuid()}
+      key="todoList"
       url="https://jsonplaceholder.typicode.com/todos"
-      classNamePostFix="usersList"
+      classNamePostFix="todoList"
       searchInputs={{
         text: {
           type: "text",
