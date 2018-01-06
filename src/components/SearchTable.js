@@ -53,8 +53,10 @@ class SearchTable extends Component {
 
   render() {
     const {
-      isFetching,
       data,
+      isFetching,
+      errorStatus,
+      errorMessage,
       key,
       classNamePostFix,
       searchInputs,
