@@ -24,12 +24,11 @@ class SearchTable extends Component {
     // using axios for api call
     const request = {
       method: "GET",
-      url: url
+      url: this.props.url
     };
     axios(request)
       .then(res => {
-        // logState(url, res);
-        dispatch(successFetching(res.data));
+        // TODO: do somthing with result
       })
       .catch(err => {
         console.log("error:: ", err);
@@ -39,7 +38,7 @@ class SearchTable extends Component {
   render() {
     const {
       isFetching,
-      data,
+      // data,
       key,
       classNamePostFix,
       searchInputs,
