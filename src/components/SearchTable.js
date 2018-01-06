@@ -1,14 +1,39 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+// import { connect } from "react-redux";
+// import { bindActionCreators } from "redux";
 
 import SearchBar from "./SearchBar";
 import ListingTable from "./ListingTable";
-import * as actions from "../redux/actions";
+// import * as actions from "../redux/actions";
 
 class SearchTable extends Component {
-  componentWillMount() {
-    this.props.fetchData(this.props.url)
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {},
+      isFetching: false,
+      errorStatus: false,
+      errorMessage: ""
+    };
+  }
+
+  /* componentWillMount() {
+    this.props.fetchData(this.props.url);
+  } */
+  componentDidMount() {
+    // using axios for api call
+    const request = {
+      method: "GET",
+      url: url
+    };
+    axios(request)
+      .then(res => {
+        // logState(url, res);
+        dispatch(successFetching(res.data));
+      })
+      .catch(err => {
+        console.log("error:: ", err);
+      });
   }
 
   render() {
@@ -19,12 +44,14 @@ class SearchTable extends Component {
       classNamePostFix,
       searchInputs,
       tableColumns
-    } = this.props;
-    
-    if (this.props.error) { 
+      // } = this.props;
+    } = this.state;
+
+    if (this.props.error) {
       return (
         <div className="alert">
-          {alert( // TODO: this needs to be built
+          {alert(
+            // TODO: this needs to be built
             "<Error fetchError='Sorry! There was an error loading the page'"
           )}
         </div>
@@ -54,7 +81,7 @@ class SearchTable extends Component {
   }
 }
 
-const mapStateToProps = ({ data, isFetching, errorStatus, errorMessage}) => ({
+/* const mapStateToProps = ({ data, isFetching, errorStatus, errorMessage }) => ({
   data,
   isFetching,
   errorStatus,
@@ -63,4 +90,4 @@ const mapStateToProps = ({ data, isFetching, errorStatus, errorMessage}) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchTable);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchTable); */
