@@ -1,10 +1,11 @@
 import React from "react";
 import SearchTable from "./SearchTable";
+import uuid from 'uuid'
 
 const UsersList = () => (
   <div className="usersList">
     <SearchTable
-      key="users-list"
+      key= {uuid()}
       url="https://jsonplaceholder.typicode.com/users"
       classNamePostFix="usersList"
       searchInputs={{
@@ -23,12 +24,6 @@ const UsersList = () => (
             2: "yahoo",
             3: "hotmail"
           }
-        },
-        checkbox: {
-          type: "checkbox",
-          id: "showDisabledPatients",
-          label: "Show Disabled Patients",
-          style: { margin: "1%" }
         }
       }}
       tableColumns={[
@@ -51,12 +46,6 @@ const UsersList = () => (
           width: 70
         },
         {
-          title: "Avatar",
-          dataIndex: "avatar",
-          key: "avatar",
-          width: 70
-        },
-        {
           title: "Phone",
           dataIndex: "phone",
           key: "phone",
@@ -73,6 +62,56 @@ const UsersList = () => (
           dataIndex: "id",
           key: "id",
           width: 40
+        }
+      ]}
+    />
+
+<SearchTable
+      key={uuid()}
+      url="https://jsonplaceholder.typicode.com/todos"
+      classNamePostFix="usersList"
+      searchInputs={{
+        text: {
+          type: "text",
+          id: "title",
+          placeholder: "Todo Title",
+          size: "small"
+        },
+        dropdown: {
+          type: "dropdown",
+          id: "status",
+          label: "Status",
+          options: {
+            1: "Not Completed",
+            2: "Completed",
+            3: "All"
+          }
+        },
+        checkbox: {
+          type: "checkbox",
+          id: "showCompleted",
+          label: "Show Completed Todos",
+          style: { margin: "1%" }
+        }
+      }}
+      tableColumns={[
+        {
+          title: "Title",
+          dataIndex: "title",
+          key: "title",
+          width: 70,
+        },
+        {
+          title: "Completed",
+          dataIndex: "completed",
+          key: "completed",
+          width: 70
+        },
+        {
+          title: "ID",
+          dataIndex: "id",
+          key: "id",
+          width: 70
         }
       ]}
     />

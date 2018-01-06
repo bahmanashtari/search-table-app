@@ -5,7 +5,7 @@ import uuid from "uuid";
 const ListingTable = ({ loading, columns, data }) => {
   // adding key to each row of data
   for (let i = 0; i < data.length; i++) {
-    data[i].key = uuid();
+    ( !data[i].key ) ? data[i].key = uuid() : null;
   }
   return (
     <div>

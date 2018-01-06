@@ -21,10 +21,10 @@ class SearchTable extends Component {
       tableColumns
     } = this.props;
     
-    if (this.props.error) {
+    if (this.props.error) { 
       return (
         <div className="alert">
-          {alert(
+          {alert( // TODO: this needs to be built
             "<Error fetchError='Sorry! There was an error loading the page'"
           )}
         </div>
