@@ -33,7 +33,7 @@ export const fetchData = url => {
         // logState(url, res);
         dispatch(successFetching(res.data));
       })
-      .catch(err => {
+      .catch(err => { // handle errors here instead of catch block. see reactjs.org for ajax calls
         console.log("error:: ", err);
       });
   };

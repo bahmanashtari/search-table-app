@@ -21,24 +21,40 @@ class SearchTable extends Component {
     this.props.fetchData(this.props.url);
   } */
   componentDidMount() {
-    // using axios for api call
     const request = {
       method: "GET",
       url: this.props.url
     };
-    axios(request)
-      .then(res => {
-        // TODO: do somthing with result
-      })
-      .catch(err => {
-        console.log("error:: ", err);
-      });
+    // using axios for api call
+    axios(request).then(
+      // update the state on success fetch
+      res => {
+        this.setState({
+          data: res.data,
+          isFetching: false,
+          errorStatus: false,
+          errorMessage: ""
+        });
+      },
+      // handle error on failed fetch
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      err => {
+        this.setState({
+          data: {},
+          isFetching: false,
+          errorStatus: true,
+          errorMessage: err
+        });
+      }
+    );
   }
 
   render() {
     const {
       isFetching,
-      // data,
+      data,
       key,
       classNamePostFix,
       searchInputs,
